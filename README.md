@@ -1,1 +1,1 @@
-# CS-F342-CArch
+# CS-F342-CArch Lab
