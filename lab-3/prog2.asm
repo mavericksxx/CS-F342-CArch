@@ -5,7 +5,7 @@ msg: .asciiz "Enter a number: "  # Message to prompt user for input
 sum: .word 0                    # Variable to store the sum of the digits
 
 .text
-.main
+
 
 main:
     # Prompt user for input
