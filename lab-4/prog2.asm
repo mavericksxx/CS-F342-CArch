@@ -24,6 +24,7 @@ la $s0, array        # base address
 li $t0, 0            # loop variable
 lw $t1, length       # no. of elements
 lw $t3, data         # element to be searched
+                     # change this line in case of user input
 
 loop: 
 bge $t0, $t1, exit
