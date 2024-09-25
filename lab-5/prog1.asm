@@ -1,4 +1,4 @@
-.data                           # Data segment
+ .data                           # Data segment
 A:  .word 1, 2, 3, 4, 5, 6, 7, 8, 9, 10  # Array A with 10 elements
 target:  .word 5                         # The target value to find
 found_msg:  .asciiz "Target found at index: "
