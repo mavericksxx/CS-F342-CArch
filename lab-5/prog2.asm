@@ -1,4 +1,5 @@
-# question here
+# Find the sum of the elements of a word array A having 5 elements
+# and display the result to the user.
 
 .data
     array: .word 0:5     # Allocate space for 5 words, initialized to 0
@@ -6,7 +7,6 @@
     result: .asciiz "The sum of the elements is: "
 
 .text
-.globl main
 
 main:
     # Print prompt
