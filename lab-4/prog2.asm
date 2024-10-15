@@ -1,7 +1,7 @@
 .data
 array: .word 1, 24, 56, 78, 90, 100, 323, 4326, 57456, 74554  
 length: .word 10                                               # Number of elements
-x: .word 5                                                     # Element to be searched
+x: .word 4326                                                     # Element to be searched
 msg_found: .asciiz "Element found at position: "               # Message for found element
 msg_not_found: .asciiz "Element not found"                     # Message for not found element
 
