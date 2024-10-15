@@ -1,10 +1,12 @@
- .data                           # Data segment
+# Find the largest element of a word array A which has 10 elements.
+
+.data                           # Data segment
 A:  .word 1, 2, 3, 4, 5, 6, 7, 8, 9, 10  # Array A with 10 elements
 target:  .word 5                         # The target value to find
 found_msg:  .asciiz "Target found at index: "
 not_found_msg:  .asciiz "Target not found.\n"
     
-    .text                           
+.text                           
     
 main:
     li $t0, 0                       # Initialize index i = 0
