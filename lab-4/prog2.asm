@@ -1,50 +1,41 @@
-# Linear search
-# length = 10
-# array[10] = {1, 24, 56, 78, 90, 100, 323, 4326, 57456, 74554};
-# x = 5;
-# for (i = 0; i < length; i++) 
-#     if (array[i] == x) 
-#     {
-#   	printf("Element found at position %d", i);
-#	  return;
-#     }
-# printf("Element not found");
-
 .data
-array: .word 1, 24, 56, 78, 90, 100, 323, 4326, 57456, 74544
-length: .word 10
-data .word 10
-
-msg1: .asciiz "Element found"
-msg2: .asciiz "Element not found"
+array: .word 1, 24, 56, 78, 90, 100, 323, 4326, 57456, 74554  
+length: .word 10                                               # Number of elements
+x: .word 5                                                     # Element to be searched
+msg_found: .asciiz "Element found at position: "               # Message for found element
+msg_not_found: .asciiz "Element not found"                     # Message for not found element
 
 .text
 main: 
-la $s0, array        # base address
-li $t0, 0            # loop variable
-lw $t1, length       # no. of elements
-lw $t3, data         # element to be searched
-                     # change this line in case of user input
+    la $s0, array        # Load base address of the array into $s0
+    li $t0, 0            # Initialize loop variable i = 0
+    lw $t1, length       # Load the length of the array into $t1
+    lw $t3, x            # Load the element to be searched into $t3
 
 loop: 
-bge $t0, $t1, exit
-lw $t2, 0($s0)       # fetch element
-beq $t2, $t3, found
-addi $s0, $s0, 4     # move by 4 locations
-addi $t0, $t0, 1     # increment loop by 1
-j loop
+    bge $t0, $t1, not_found  # If i >= length, go to not_found
+    lw $t2, 0($s0)           # Load array[i] into $t2
+    beq $t2, $t3, found      # If array[i] == x, go to found
+    addi $s0, $s0, 4         # Move to the next element (4 bytes)
+    addi $t0, $t0, 1         # Increment i
+    j loop                   # Repeat the loop
 
 found: 
-li $v0, 4
-la $a0, msg1
-syscall
-j loop1
+    li $v0, 4                # Prepare to print message
+    la $a0, msg_found        # Load the "Element found" message
+    syscall                  # Print message
 
-exit: 
-li $v0, 4
-la $a0, msg2
-syscall
+    move $a0, $t0            # Move index i into $a0
+    li $v0, 1                # Load print integer syscall code
+    syscall                  # Print the index position
 
-loop1: 
-li $v0, 10
-syscall
+    li $v0, 10               # Load syscall for exit
+    syscall                  # Exit the program
+
+not_found: 
+    li $v0, 4                # Prepare to print message
+    la $a0, msg_not_found    # Load the "Element not found" message
+    syscall                  # Print message
+
+    li $v0, 10               # Load syscall for exit
+    syscall                  # Exit the program
