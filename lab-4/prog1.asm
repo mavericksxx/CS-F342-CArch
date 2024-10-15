@@ -5,8 +5,8 @@
 #   printf("%d\n",array[i]);
 
 .data 
-array: .word 1, 2, 3, 4
-length: .word 4
+array: .word 1, 24, 56, 78, 90, 100, 323, 4326, 57456, 74554
+length: .word 10
 
 .text
 main:
