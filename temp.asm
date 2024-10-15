@@ -13,7 +13,7 @@
 .data
 array: .word 1, 24, 56, 78, 90, 100, 323, 4326, 57456, 74544
 length: .word 10
-data: .word 10
+data: .word 323
 
 msg1: .asciiz "Element found"
 msg2: .asciiz "Element not found"
