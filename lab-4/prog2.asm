@@ -25,8 +25,8 @@ found:
     la $a0, msg_found        # Load the "Element found" message
     syscall                  # Print message
 
-    move $a0, $t0            # Move index i into $a0
     li $v0, 1                # Load print integer syscall code
+    move $a0, $t0            # Move index i into $a0
     syscall                  # Print the index position
 
     li $v0, 10               # Load syscall for exit
