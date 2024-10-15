@@ -29,7 +29,7 @@ syscall
 move $t1, $v0
 
 #adding the integers
-add $t2, $t0, $t1
+add $t1, $t0, $t1
 
 #printing the result msg
 li $v0, 4
@@ -38,7 +38,7 @@ syscall
 
 #printing the result
 li $v0, 1
-move $a0, $t2
+move $a0, $t1
 syscall
 
 li $v0, 10
