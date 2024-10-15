@@ -1,14 +1,14 @@
 # x = (a - b) + (c - 5)
 
 .data
-n1: .word 0
-n2: .word 0
-n3: .word 0 
-n4: .word 0 
+n1: .word 0 # a
+n2: .word 0 # b
+n3: .word 0 # c
+n4: .word 0 # result after operation
 
 msg: .asciiz "The result of the operation is: "
 
-.ext
+.text
 main:
 lw $t0, n1
 lw $t1, n2
