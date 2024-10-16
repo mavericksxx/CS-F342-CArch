@@ -2,6 +2,8 @@
 # start, step, stop
 # keep decrementing step from start until it reaches stop
 
+# yeah no kidding this was the question
+
 .data
     prompt_start: .asciiz "Enter the start value: "
     prompt_step:  .asciiz "Enter the step value: "
