@@ -6,11 +6,8 @@
     prompt_start: .asciiz "Enter the start value: "
     prompt_step:  .asciiz "Enter the step value: "
     prompt_stop:  .asciiz "Enter the stop value: "
-    result_msg:   .asciiz "Current value: "
-    done_msg:     .asciiz "Done.\n"
 
 .text
-.globl main
 
 main:
     # Prompt for start value
@@ -41,13 +38,9 @@ main:
     move $t2, $v0               # Move stop value into $t2
 
 decrement_loop:
-    bge $t0, $t2, print_result  # While start >= stop, continue loop
+    blt $t0, $t2, end_loop      # If start < stop, exit the loop
 
-    # Print current value
-    li $v0, 4                  # Syscall for printing a string
-    la $a0, result_msg          # Load result message
-    syscall                     # Print message
-
+    # Print current value (start)
     li $v0, 1                  # Syscall for printing integer
     move $a0, $t0              # Move current start value into $a0
     syscall                     # Print start value
@@ -57,12 +50,7 @@ decrement_loop:
     
     j decrement_loop            # Repeat the loop
 
-print_result:
-    # Print done message
-    li $v0, 4                  # Syscall for printing a string
-    la $a0, done_msg            # Load done message
-    syscall                     # Print done message
-
+end_loop:
     # Exit the program
     li $v0, 10                 # Syscall for program exit
     syscall
