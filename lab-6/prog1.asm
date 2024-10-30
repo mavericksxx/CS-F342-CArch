@@ -6,7 +6,7 @@
 
 
 .data
-    string1: .asciiz "hello"
+    string1: .asciiz "abcdefghijklmnopqrstuvwxyz"
     string2: .asciiz "the length of the string is: "
 
 .text
