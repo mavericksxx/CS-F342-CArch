@@ -5,7 +5,8 @@
 #    la $a0, string1   // user input stored in string1
 
 .data                   
-prompt: .asciiz "Enter a string: "               
+prompt: .asciiz "Enter a string: "
+str: .word 0               
 msg:    .asciiz "\nThe length of the string is: "
 
 .text                   
