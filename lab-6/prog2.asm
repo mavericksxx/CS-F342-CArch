@@ -2,50 +2,42 @@
 # Store the reversed string in memory. 
 # Also display the reversed string to the user.
 
-    .data
-string1: .asciiz "whatever"
-reversed_string: .space 100
-msg: .asciiz "The reversed string is: "
+.data
+    input_str: .asciiz "whatever"
+    backwards: .asciiz "The reversed string is: \n"
+    rev_str: .space 50
 
-    .text
-
+.text
 main:
-    la      $t0, string1
-    li      $s0, 0
+    la $t0, input_str           # base address of input string in $a0
+    la $a1, rev_str             # base address of reversed string in $a1
+    li $s0, 0                   # counter i = 0
 
-# length of string1
-length:
-    lb      $t1, 0($t0)
-    beq     $t1, $zero, reverse
-    addi    $s0, $s0, 1
-    addi    $t0, $t0, 1
-    j       length
+loop1: 
+    add $t1, $s0, $t0           # address of input_str[i] in $t1
+    lb $t2, 0($t1)              # $t2 = input_str[i]
+    beq $t2, $zero, out         # if input_str[i] = 0, go to out
+    addi $s0, $s0, 1            # i = i + 1 (increment counter)
+    j loop1 
 
-# reversing string
-reverse:
-    la      $t0, string1
-    add     $t2, $t0, $s0
-    subi    $t2, $t2, 1
-    la      $t3, reversed_string
-
-reverse_loop:
-    lb      $t1, 0($t2)
-    sb      $t1, 0($t3)
-    subi    $t2, $t2, 1
-    addi    $t3, $t3, 1
-    addi    $s0, $s0, -1
-    bgtz    $s0, reverse_loop
-
-    sb      $zero, 0($t3)
-
-# display reversed string
-    li      $v0, 4
-    la      $a0, msg
+out: 
+    li $v0, 4                   # print string
+    la $a0, backwards           
     syscall
 
-    li      $v0, 4
-    la      $a0, reversed_string
+loop2:
+    addi $s0, $s0, -1           # i = i - 1 (points to the last char.)
+    add $t1, $s0, $t0           # address of input_str[i] in $t1
+    lb $a0, 0($t1)              # $a0 = input_str[i]
+    sb $a0, 0($a1)              # store in rev_str[i]
+    addi $a1, $a1, 1
+
+    li $v0, 11                  # print char.
     syscall
 
-    li      $v0, 10
+    beq $s0, $zero, exit        # if i = 0, then exit
+    j loop2
+
+exit:
+    li $v0, 10
     syscall
