@@ -3,7 +3,7 @@
 # Also display the reversed string to the user.
 
     .data
-string1: .asciiz "hello"
+string1: .asciiz "whatever"
 reversed_string: .space 100
 msg: .asciiz "The reversed string is: "
 
