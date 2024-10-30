@@ -6,7 +6,7 @@
 
 .data                   
 prompt: .asciiz "Enter a string: "
-str: .word 0               
+str: .space 100              
 msg:    .asciiz "\nThe length of the string is: "
 
 .text                   
