@@ -35,7 +35,7 @@ loop2:
     li $v0, 11                  # print char.
     syscall
 
-    beq $s0, $zero, exit        # if i = 0, then exit
+    beq $s0, $zero, exit        # if i = 0 then exit
     j loop2
 
 exit:
