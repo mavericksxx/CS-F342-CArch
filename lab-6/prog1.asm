@@ -27,7 +27,7 @@ exit:
     syscall                  
 
     li      $v0, 1           
-    move    $a0, $t1         
+    move    $a0, $s0         
     syscall                  
 
     li      $v0, 10          
