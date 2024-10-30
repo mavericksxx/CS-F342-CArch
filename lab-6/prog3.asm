@@ -55,3 +55,22 @@ palindrome_check:
     bne $t4, $t5, not_palindrome   # if characters don’t match, not a palindrome
     addi $t0, $t0, 1               # move to next character in input_str
     addi $a1, $a1, 1               # move to next character in rev_str
+
+not_palindrome:
+    li $t3, 0                      # set palindrome flag to false (0)
+
+# print result based on palindrome check
+print_result:
+    li $v0, 4
+    beq $t3, 1, is_palindrome      # if flag is 1, print palindrome message
+    la $a0, not_palindrome_msg
+    j end_program
+
+is_palindrome:
+    la $a0, palindrome_msg
+
+end_program:
+    syscall                      # print the result
+
+    li $v0, 10
+    syscall
