@@ -2,7 +2,7 @@
 # Print the result to the user.
 
 .data
-    input_str: .asciiz "whatever"
+    input_str: .asciiz "hannah"
     palindrome_msg: .asciiz "\nThe string is a palindrome.\n"
     not_palindrome_msg: .asciiz "\nThe string is not a palindrome.\n"
 
