@@ -16,7 +16,7 @@ main:
 
 loop: 
     add $t1, $t0, $s0            # adding t0 (base address of current char.) and s0 (counter) and storing in t1
-    lb $t2, 0($t0)               # read chars.   
+    lb $t2, 0($t1)               # read chars.   
     beq $t2, $zero, exit         # once we reach the end of string (=0), exit out 
     addi $s0, $s0, 1             # increment counter
     j loop  
