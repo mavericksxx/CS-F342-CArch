@@ -6,12 +6,12 @@
 
 
 .data
-    string1: .asciiz "abcdefghijklmnopqrstuvwxyz"
-    string2: .asciiz "the length of the string is: "
+    string: .asciiz "abcdefghijklmnopqrstuvwxyz"
+    output: .asciiz "the length of the string is: "
 
 .text
 main:
-    la $t0, string1
+    la $t0, string
     li $s0, 0                    # counter
 
 loop: 
@@ -23,7 +23,7 @@ loop:
 
 exit: 
     li      $v0, 4           
-    la      $a0, string2         
+    la      $a0, output         
     syscall                  
 
     li      $v0, 1           
