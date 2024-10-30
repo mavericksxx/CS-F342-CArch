@@ -1,14 +1,12 @@
 # Find if a given string is a palindrome or not.  
 # Print the result to the user.
 
-    .data
-input_str: .asciiz "whatever"
-palindrome_msg: .asciiz "\nThe string is a palindrome.\n"
-not_palindrome_msg: .asciiz "\nThe string is not a palindrome.\n"
+.data
+    input_str: .asciiz "whatever"
+    palindrome_msg: .asciiz "\nThe string is a palindrome.\n"
+    not_palindrome_msg: .asciiz "\nThe string is not a palindrome.\n"
 
-    .text
-    .globl main
-
+.text
 main:
     la $t0, input_str           # base address of input_str in $t0
     li $s0, 0                   # counter i = 0
