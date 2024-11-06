@@ -1,4 +1,4 @@
-    .data
+.data
 x: .word 10                     # First number
 y: .word 5                      # Second number
 sum_msg: .asciiz "Sum: "
@@ -6,9 +6,8 @@ diff_msg: .asciiz "Difference: "
 prod_msg: .asciiz "Product: "
 quot_msg: .asciiz "Quotient: "
 
-    .text
+.text
 
-# Main procedure
 main:
     # Load values of x and y
     lw $a0, x                   # Load x into $a0
