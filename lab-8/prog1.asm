@@ -1,3 +1,16 @@
+# Write MALP using procedures:
+# Power of a given number using recursion
+#    int power (int a, int n)
+#     {
+#        if (n==1)
+#            return a;
+#        return a * power(n-1)
+#    }
+#    main()
+#    {
+#        pow = power(a, n);
+#    }
+
 .data
 a:         .word 2                     # Base value (a)
 n:         .word 3                     # Exponent (n)
