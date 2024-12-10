@@ -9,7 +9,7 @@
 
 .text
 main:
-    la $t0, input_str           # base address of input string in $a0
+    la $t0, input_str           # base address of input string in $t0
     la $a1, rev_str             # base address of reversed string in $a1
     li $s0, 0                   # counter i = 0
 
